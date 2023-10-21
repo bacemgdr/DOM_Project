@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AS Roma</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+
+<body>
+ 
+  <h1> <img src='./pic/Roma-Logo-1979.png' > AS ROMA Store</h1>
+
+  <div id="cart">
+    <div class="item">
+      
+      <img src="./pic/roma1.jpeg" title="roma1">
+      <p>Price: $96</p>
+      <button class="quantity-btn minus">-</button>
+      <span class="quantity">0</span>
+      <button class="quantity-btn plus">+</button>
+      <button class="delete-btn">Delete</button>
+      <div class="col-1"><img id="heart" src="./pic/icons8.png" width="5" height="5"></div>
+    </div>
+    <div class="item">
+      
+      <img src="./pic/roma2.jpg" title="roma2">
+      <p>Price: $89</p>
+      <button class="quantity-btn minus">-</button>
+      <span class="quantity">0</span>
+      <button class="quantity-btn plus">+</button>
+      <button class="delete-btn">Delete</button>
+      <div class="col-1"><img id="heart" src="./pic/icons8.png" width="5" height="5"></div>
+    </div>
+    <div class="item">
+        <img  src="./pic/roma3.jpeg"  title="roma3">
+        <p>Price: $79</p>
+        <button class="quantity-btn minus">-</button>
+        <span class="quantity">0</span>
+        <button class="quantity-btn plus">+</button>
+        <button class="delete-btn">Delete</button>
+        <div class="col-1"><img id="heart" src="./pic/icons8.png" width="5" height="5"></div>
+    </div>
+
+      <div class="item">
+       
+        <img src="./pic/roma4.jpeg" title="roma4" >
+        <p>Price: $87</p>
+        <button class="quantity-btn minus">-</button>
+        <span class="quantity">0</span>
+        <button class="quantity-btn plus">+</button>
+        <button class="delete-btn">Delete</button>
+        <div class="col-1"><img id="heart"  src="./pic/icons8.png" width="5" height="5"></div>
+
+      </div>
+    <!-- Add more items here -->
+  </div>
+
+  <p id="total-price">Total Price: $0</p>
+
+  <script>
+
+
+    
+
+    const cart = document.getElementById('cart');
+    const items = cart.getElementsByClassName('item');
+    const totalPriceElement = document.getElementById('total-price');
+    let hearts = Array.from(document.querySelectorAll("#heart"));
+  
+
+    // Add event listeners for quantity buttons
+
+    for (let item of items) {
+      const quantity = item.querySelector('.quantity');
+      const plusBtn = item.querySelector('.plus');
+      const minusBtn = item.querySelector('.minus');
+
+      plusBtn.addEventListener('click', () => {
+        quantity.textContent = parseInt(quantity.textContent) + 1;
+        updateTotalPrice();
+      });
+
+      minusBtn.addEventListener('click', () => {
+        const currentQuantity = parseInt(quantity.textContent);
+        if (currentQuantity > 0) {
+          quantity.textContent = currentQuantity - 1;
+          updateTotalPrice();
+        }
+      });
+    }
+
+    // Add event listeners for delete buttons
+    for (let item of items) {
+      const deleteBtn = item.querySelector('.delete-btn');
+
+      deleteBtn.addEventListener('click', () => {
+        item.remove();
+        updateTotalPrice();
+      });
+    }
+
+    //Add event listeners for like buttons
+    
+    for(let i in hearts){
+    hearts[i].addEventListener("click",function(){
+        if(hearts[i].getAttribute('src') == "./pic/icons8.png")
+        hearts[i].setAttribute('src','./pic/icons8-heart-48.png');
+        else
+        hearts[i].setAttribute('src','./pic/icons8.png');
+    });
+}
+
+
+
+
+    // Calculate and update the total price
+    function updateTotalPrice() {
+      let totalPrice = 0;
+      for (let item of items) {
+        const quantity = parseInt(item.querySelector('.quantity').textContent);
+        const price = parseInt(item.querySelector('p').textContent.replace(/[^0-9]/g, ''));
+        totalPrice += quantity * price;
+      }
+      totalPriceElement.textContent = `Total Price: $${totalPrice}`;
+    }
+ 
+  </script>
+
+</body>
+</html>

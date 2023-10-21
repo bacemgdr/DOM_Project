@@ -1,0 +1,85 @@
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #cab4b4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    #cart {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color:#8a5151;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .item {
+      display: grid;
+      grid-template-columns: auto auto auto auto auto;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #f5f5f5;
+      border-radius: 4px;
+    }
+
+  
+    .heart-liked {
+      color: red;
+    }
+
+    img {
+  width: 100px;
+  height: auto;
+    }
+
+    .like-btn img{
+      width: 15px;
+      height: 15px;
+    }
+    .quantity-btn {
+      padding: 5px 10px;
+      border: none;
+      background: #ccc;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .delete-btn {
+      padding: 5px 5px;
+      border: none;
+      background: #f00;
+      color: #fff;
+      cursor: pointer;
+      width: 100px; 
+      height: 25px ;
+    }
+
+ /*   .like-btn {
+      padding: 5px 10px;
+      border: none;
+      background: #fff;
+      cursor: pointer;
+    }*/
+
+    #total-price {
+      font-weight: bold;
+      text-align: right;
+      margin-top: 20px;
+    }
+
+ img#heart{
+    width: 20px;
+    height:20px ;
+ }
+ 
+  
+
